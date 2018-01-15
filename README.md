@@ -59,7 +59,7 @@ The XML file should look something like this:
 
 ```
 Target:
-C:\<PathToCemu>\Cemu_withGLCacheBackup.exe -gamePath "<FullPathToGame>" -gameId "<NameOfGame>" -noPrompts
+C:\<PathToCemu>\Cemu_withGLCacheBackup.exe -gamePath "<FullPathToGame>" -gameId "<NameOfGame>"
 
 Start In:
 C:\<PathToCemu>
@@ -73,7 +73,7 @@ To prevent the console from showing an causing the CEMU window to lose focus, us
 
 ```
 Target:
-C:\<PathToCemu>\Cemu_withGLCacheBackup_noConsole.exe -gamePath "<FullPathToGame>" -gameId "<NameOfGame>" -cemuArgs "+f +ud" -noPrompts
+C:\<PathToCemu>\Cemu_withGLCacheBackup_noConsole.exe -gamePath "<FullPathToGame>" -gameId "<NameOfGame>" -cemuArgs "+f +ud"
 
 Start In:
 C:\<PathToCemu>
