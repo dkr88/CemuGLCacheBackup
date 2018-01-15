@@ -4,7 +4,6 @@ Set-Location (Split-Path -Parent -Path $MyInvocation.MyCommand.Definition)
 
 .\build\ps2exe.ps1 -inputFile .\Cemu_withGLCacheBackup.ps1 -outputFile .\dist\Cemu_withGLCacheBackup.exe
 
-
 # Build the noConsole version
 
 $scriptContent = Get-Content -Path .\Cemu_withGLCacheBackup.ps1
@@ -15,7 +14,11 @@ Set-Content -Path .\Cemu_withGLCacheBackup_noConsole.temp.ps1 -Value $scriptCont
 
 Remove-Item .\Cemu_withGLCacheBackup_noConsole.temp.ps1
 
+# Clean up
+
+Remove-Item .\dist\*.exe.config
+
 # Support files
 
-Copy-Item .\Cemu_withGLCacheBackup.ps1 .\dist\
 Copy-Item .\Cemu_withGLCacheBackup.xml .\dist\
+Copy-Item .\README.md .\dist\
