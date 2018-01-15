@@ -33,20 +33,18 @@ So effectively this script maintains a per-game GL shader cache backup.
 
 You **MUST** configure the appropriate settings in this file before running. This XML file must be placed in the same directory as this script/exe.
 
-First, open the NVIDIA GLCache folder in Windows Explorer. It will be something like:
-
+1. Open the NVIDIA GLCache folder in Windows Explorer. It will be something like:
 `C:\Users\<UserName>\AppData\Local\NVIDIA\GLCache`
 
-Keep opening the folders in the `GLCache` folder until you come to a folder containing at least one `.bin` file and one `.toc` file.
+2. Keep opening the folders in the `GLCache` folder until you come to a folder containing at least one `.bin` file and one `.toc` file.
 
-Copy this folder path and paste it in the `<glCacheDir>` element in the XML file.
+3. Copy this folder path and paste it in the `<glCacheDir>` element in the XML file.
 
-Now I recommend deleting all of the `.bin` and `.toc` files in this directory so you're starting fresh.
+4. Delete all of the `.bin` and `.toc` files in this directory so you're starting fresh.
 
-Launch CEMU normally (without this script) and run any game. Let the game start, then check the folder again and you should now see a `.bin` and a `.toc` file. Copy the file name from the `.bin` file (without the extension) and paste it in the `<glCacheCemuId>` element in the XML file.
+5. Launch CEMU normally (without this script) and run any game. Let the game start, then check the folder again and you should now see a `.bin` and a `.toc` file. Copy the file name from the `.bin` file (without the extension) and paste it in the `<glCacheCemuId>` element in the XML file.
 
 The XML file should look something like this:
-
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
@@ -67,7 +65,7 @@ Start In:
 C:\<PathToCemu>
 ```
 
-- Note: The gameId is simply a unique name to use as the backup cache name. It can be whatever you want, just stick to letters and numbers for simplicity.
+- Note: The `gameId` parameter is simply a unique name to use as the backup cache name. It can be whatever you want, just stick to letters and numbers for simplicity.
 
 ## Creating a shortcut for Steam in-home streaming:
 
