@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+
+	<!-- 
+	The path to where the NVIDIA GLCache .bin files are located 
+	-->
+	<glCacheDir>C:\Users\UserName\AppData\Local\NVIDIA\GLCache\718a971d5bda0402be4a6aa910329361\9e5cb618e0a477b0</glCacheDir>
+
+	<!-- 
+	The name of the .bin file (without the .bin extension) created by Cemu when a game starts 
+
+    If you're not sure which one belongs to CEMU, delete all the files from the directory,
+    start a game and check the folder. There should be 2 files, a .bin and a .toc file.
+    If the file is named ABC.bin, set this value to ABC 	
+	-->
+	<glCacheCemuId>3ad8f6e21bb8bb8e</glCacheCemuId>
+
+</config>
