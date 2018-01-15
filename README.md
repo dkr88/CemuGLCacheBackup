@@ -31,7 +31,7 @@ So effectively this script maintains a per-game GL shader cache backup.
 
 # Cemu_withGLCacheBackup.xml
 
-You **MUST** configure the appropriate settings in this file before running. This XML file must be placed in the same directory as this script/exe.
+You **MUST** configure the appropriate settings in this file before using the script. This only needs to be done once. This XML file must be placed in the same directory as this script/exe.
 
 1. Open the NVIDIA GLCache folder in Windows Explorer. It will be something like:
 `C:\Users\<UserName>\AppData\Local\NVIDIA\GLCache`
@@ -44,7 +44,7 @@ You **MUST** configure the appropriate settings in this file before running. Thi
 
 5. Launch CEMU normally (without this script) and run any game. Let the game start, then check the folder again and you should now see a `.bin` and a `.toc` file. Copy the file name from the `.bin` file (without the extension) and paste it in the `<glCacheCemuId>` element in the XML file.
 
-The XML file should look something like this:
+The configured XML file should look something like this:
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
