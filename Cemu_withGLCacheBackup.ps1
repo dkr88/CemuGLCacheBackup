@@ -3,7 +3,7 @@
 This PowerShell script is designed to intelligently backup and 
 restore the NVIDIA GL shader cache for CEMU on a PER-GAME basis.
 
-Please see 
+Please see https://github.com/dkr88/CemuGLCacheBackup/blob/master/README.md
 
 #>
 
