@@ -136,6 +136,19 @@ If you use this option, you'll get prompted before restoring and saving backups.
 This flag will make the script not actually restore or backup the cache files. Useful if you just want to test your config and see the size of the shader caches.
 ```
 
+# How do I know if it's working?
+
+Once you've configured everything correctly and backups are being taken, you can do this simple test:
+
+1. Run a game using this script and play a section you can easily replay
+2. Exit CEMU
+3. Find the GLCache backup for your game (by default, in the `GLCacheBackup` folder within the CEMU install directory)
+4. Rename the `GLCacheBackup` folder to `GLCacheBackup_off`
+5. Re-launch the game and play the same section, do you get stutters?
+6. Exit CEMU
+7. Delete the new `GLCacheBackup` folder that got created and rename `GLCacheBackup_off` back to `GLCacheBackup`
+8. Re-launch the game and play the same section - there should be less micro-stuttering
+
 # Logging
 
 This script will write a log file to `Cemu_withGLCacheBackup.log.txt` whenever it is run. It can be helpful for debugging paths and settings.
