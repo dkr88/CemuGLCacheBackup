@@ -56,7 +56,7 @@ When you exit Cemu after the first run of the game, the setting will be reverted
 
 3) For each Cemu game you play, create a Windows and/or Steam shortcut
 
-# Cemu_withGLCacheBackup.xml
+## Cemu_withGLCacheBackup.xml
 
 You **MUST** configure the appropriate settings in this file before using the script. This only needs to be done once. This XML file must be placed in the same directory as this script/exe.
 
@@ -80,7 +80,7 @@ The configured XML file should look something like this:
 </config>
 ```
 
-# Creating a shortcut to run a game
+## Creating a shortcut to run a game
 
 >Remember: If there is no existing backup (i.e. running a game using this script for the first time, or you manually deleted a backup) then this script will force a re-compile of the shader cache, so it will take longer to load as Cemu re-compiles the cache.
 
