@@ -1,6 +1,6 @@
 # About this script
 
-This PowerShell script is designed to intelligently backup and restore the NVIDIA GL shader cache for CEMU on a PER-GAME basis.
+This PowerShell script is designed to intelligently backup and restore the NVIDIA GL shader cache for Cemu on a PER-GAME basis.
 
 The script has been wrapped as an exe using PS2EXE-GUI.
 
@@ -13,7 +13,7 @@ The script has been wrapped as an exe using PS2EXE-GUI.
 
 # What it fixes
 
-It might reduce micro-stutters caused by the NVIDIA GL cache for CEMU getting invalidated / deleted.
+It might reduce micro-stutters caused by the NVIDIA GL cache for Cemu getting invalidated / deleted.
 
 When does that happen?
 - Driver update
@@ -22,7 +22,7 @@ When does that happen?
 
 My primary concern is the multiple game scenario. This script helps maintain distinct GL shader caches per-Cemu game which, from my experience, reduces stutter caused by the cache (or portions of it) being somehow invalidated by switching games.
 
->If you only play a single game with Cemu, this script probbably isn't going to help you much as your GLSahder cache will rarely get invalidated.
+>NOTE: If you only play a single game with Cemu, this script probbably isn't going to help you much as your GLSahder cache will rarely get invalidated.
 
 One commonly suggested fix to stuttering is to set the `Precombiled shader cache` option in Cemu (hook) to `Disabled/ignore`. This script more or less emulates that behaviour without having to deal with the long load times each time you play a game.
 
@@ -32,23 +32,19 @@ It won't magically fix stuttering or improve FPS, in fact it might not improve a
 
 If you only play one game with Cemu, you won't really benefit much as your GLCache will rarely get invalidated.
 
->To reiterate the possible benefit of this script:
->
->If you are playing more than one game with Cemu, this script maintains distinct versions of the NVIDIA GLCache for each game.
->
->This might help prevent the cache from being invalidated when switching games, which could lead to stuttering at various points in the game.
+>REMINDER: If you are playing more than one game with Cemu, this script maintains distinct versions of the NVIDIA GLCache for each game. This might help prevent the cache (or portions of it) from being invalidated when switching games, which could lead to stuttering at various points in the game.
 
 # How it works
 
-Before launching a specific game in CEMU, this script tries to restore a backup of the NVIDIA GL shader cache for that particular game.
+Before launching a specific game in Cemu, this script tries to restore a backup of the NVIDIA GL shader cache for that particular game.
 
-When CEMU exits, the script checks to see if the GL shader cache increased significantly in size and backs it up if it did.
+When Cemu exits, the script checks to see if the GL shader cache increased significantly in size and backs it up if it did.
 
-## What happens the first time a game is run?
+### What happens the first time a game is run?
 
-When running a game for the first time (or if a previous backup was deleted), this script will use the Cemu hook .ini file to force a re-compile of the shader cache. This is necessary to get a good clean GLCache to make a backup from.
+When running a game for the first time (or if a previous backup was deleted), this script will use the Cemu hook .ini file to force a re-compile of the shader cache. This is necessary to get a good clean GL cache to make a backup from.
 
-When you exit Cemu after the first run of the game, the backup will be taken and the setting will be reverted to enable the precompiled shader cache again.
+When you exit Cemu after the first run of the game, the setting will be reverted to enable the precompiled shader cache again.
 
 >WARNING: If you make any changes to Cemu hook config on the first run and this script has forced the re-compile, the settings you changed will be reverted when you exit Cemu.
 
@@ -58,7 +54,7 @@ When you exit Cemu after the first run of the game, the backup will be taken and
 
 2) Edit 'Cemu_withGLCacheBackup.xml' and set the NVIDIA GL cache path and ID appropriately.
 
-3) For each CEMU game you play create a Windows and/or Steam shortcut
+3) For each Cemu game you play, create a Windows and/or Steam shortcut
 
 # Cemu_withGLCacheBackup.xml
 
@@ -73,7 +69,7 @@ You **MUST** configure the appropriate settings in this file before using the sc
 
 4. Delete all of the `.bin` and `.toc` files in this directory so you're starting fresh.
 
-5. Launch CEMU normally (without this script) and run any game. Let the game start, then check the folder again and you should now see a `.bin` and a `.toc` file. Copy the file name from the `.bin` file (without the extension) and paste it in the `<glCacheCemuId>` element in the XML file.
+5. Launch Cemu normally (without this script) and run any game. Let the game start, then check the folder again and you should now see a `.bin` and a `.toc` file. Copy the file name from the `.bin` file (without the extension) and paste it in the `<glCacheCemuId>` element in the XML file.
 
 The configured XML file should look something like this:
 ```
@@ -102,7 +98,7 @@ C:\<PathToCemu>
 
 ## Creating a shortcut for Steam in-home streaming:
 
-To prevent the console from showing an causing the CEMU window to lose focus, use the `_noConsole` variant of the script. Then add the CEMU args to enable full screen and upside-down rendering.
+To prevent the console from showing an causing the Cemu window to lose focus, use the `_noConsole` variant of the script. Then add the Cemu args to enable full screen and upside-down rendering.
 
 ```
 Target:
@@ -117,7 +113,7 @@ C:\<PathToCemu>
 ```
 -gamePath "<PathToCemuGame>"
 
-The full path to the CEMU game to run.
+The full path to the Cemu game to run.
 ```
 
 ```
@@ -149,12 +145,12 @@ This defaults to Cemu.exe. Normally you should not need to change this.
 ```
 -cemuArgs "<args>"
 
-You can use this parameter to pass additional arguments to the CEMU process.
+You can use this parameter to pass additional arguments to the Cemu process.
 
 ** You MUST use '+' instead of '-' in front of the arguments
    For example:
       -cemuArgs "+ud"
-   This will pass the render upside-down argument to CEMU.
+   This will pass the render upside-down argument to Cemu.
 ```
 
 ```
