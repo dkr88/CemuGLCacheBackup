@@ -84,7 +84,7 @@ The configured XML file should look something like this:
 
 >Remember: If there is no existing backup (i.e. running a game using this script for the first time, or you manually deleted a backup) then this script will force a re-compile of the shader cache, so it will take longer to load as Cemu re-compiles the cache.
 
-## Creating a Windows shortcut:
+### Creating a Windows shortcut:
 
 ```
 Target:
@@ -96,7 +96,7 @@ C:\<PathToCemu>
 
 - Note: The `gameId` parameter is simply a unique name to use as the backup cache name. It can be whatever you want, just stick to letters and numbers for simplicity.
 
-## Creating a shortcut for Steam in-home streaming:
+### Creating a shortcut for Steam in-home streaming:
 
 To prevent the console from showing an causing the Cemu window to lose focus, use the `_noConsole` variant of the script. Then add the Cemu args to enable full screen and upside-down rendering.
 
