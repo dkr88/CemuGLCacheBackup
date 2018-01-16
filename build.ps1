@@ -20,5 +20,6 @@ Remove-Item .\dist\*.exe.config
 
 # Support files
 
+Copy-Item .\Cemu_withGLCacheBackup.ps1 .\dist\
 Copy-Item .\Cemu_withGLCacheBackup.xml .\dist\
 Copy-Item .\README.md .\dist\
