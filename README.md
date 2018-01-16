@@ -5,6 +5,12 @@ the NVIDIA GL shader cache for CEMU on a PER-GAME basis.
 
 The script has been wrapped as an exe using PS2EXE-GUI.
 
+# Requirements
+
+- Cemu
+- Cemu hook (recommended)
+- Only tested on Windows 10
+
 # What it fixes
 
 Primarily, micro-stutters. NVIDIA caches GL shaders in a file on your PC as they are invoked during the course of gameplay in CEMU. These are based on the recompiled shader caches that CEMU creates when it loads a game, but crucially NVIDIA does not cache these at the time CEMU loads the game, but rather as they are invoked during gameplay. This can result in micro-stutters as new shaders are encountered. The problem is, NVIDIA invalidates / deletes these caches on occasion, which means the next time you play the same game the shader might not be cached and thus the stuttering.
@@ -19,7 +25,11 @@ Quite simply, before launching a specific game in CEMU, this script tries to res
 
 So effectively this script maintains a per-game GL shader cache backup.
 
-> If you were previously setting the `Precompiled shader cache` setting in Cemuhook to `Disabled/ignored` to fix stuttering, you should try setting it back to `Enabled` when using GLCache backups.
+>When running a game for the first time, this script will use the Cemu hook .ini file to force a re-compile of the shader cache. This is necessary to get a good clean GLCache to make a backup from.
+>
+>When you exit Cemu after the first run of the game, the backup will be taken and the setting will be reverted to enable the precompiled shader cache again.
+>
+>WARNING: If you make any changes to Cemu hook config on the first run and this script has forced the re-compile, the settings you changed will be reverted when you exit Cemu.
 
 # Setup
 
@@ -27,7 +37,7 @@ So effectively this script maintains a per-game GL shader cache backup.
 
 2) Edit 'Cemu_withGLCacheBackup.xml' and set the NVIDIA GL cache path and ID appropriately.
 
-3) Create shortcuts for each game you want to run.
+3) For each CEMU game you play create a Windows and/or Steam shortcut
 
 # Cemu_withGLCacheBackup.xml
 
@@ -136,18 +146,11 @@ If you use this option, you'll get prompted before restoring and saving backups.
 This flag will make the script not actually restore or backup the cache files. Useful if you just want to test your config and see the size of the shader caches.
 ```
 
-# How do I know if it's working?
+# Troubleshooting
 
-Once you've configured everything correctly and backups are being taken, you can do this simple test:
+- Check the `GLCacheBackup` directory in your Cemu install dir to verify that backups are being created.
 
-1. Run a game using this script and play a section you can easily replay
-2. Exit CEMU
-3. Find the GLCache backup for your game (by default, in the `GLCacheBackup` folder within the CEMU install directory)
-4. Rename the `GLCacheBackup` folder to `GLCacheBackup_off`
-5. Re-launch the game and play the same section, do you get stutters?
-6. Exit CEMU
-7. Delete the new `GLCacheBackup` folder that got created and rename `GLCacheBackup_off` back to `GLCacheBackup`
-8. Re-launch the game and play the same section - there should be less micro-stuttering
+- Check the `Cemu_withGLCacheBackup.log.txt` file to look for errors or warnings.
 
 # Logging
 
