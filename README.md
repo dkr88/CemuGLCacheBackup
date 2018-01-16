@@ -65,6 +65,8 @@ The configured XML file should look something like this:
 
 # Creating a shortcut to run a game
 
+>Remember: If there is no existing backup (i.e. running a game using this script for the first time, or you manually deleted a backup) then this script will force a re-compile of the shader cache, so it will take longer to load obviously.
+
 ## Creating a Windows shortcut:
 
 ```
