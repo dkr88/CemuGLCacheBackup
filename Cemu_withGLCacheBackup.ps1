@@ -314,9 +314,6 @@ if ($cemuHookIniModified) {
         Write-Log "Removed temporary cemuhook.ini"
     }
 }
-else {
-    Write-Log "cemuhook.ini wasn't modified"
-}
 
 $glCacheExists = Test-Path "$glCacheDir\$glCacheId.bin"
 
